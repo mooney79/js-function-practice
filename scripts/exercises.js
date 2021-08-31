@@ -130,17 +130,16 @@ function multiply(arg){
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
-  //Appears to only be testing the first letter.
-
+  
+  
   function charFreq(inputString) {
     let result = {};    
-    let tally = 0;      
     for (let i = 0; i < inputString.length; i++) {   
-      if (result.hasOwnProperty(inputString[i])) {   
-        tally++;                                     
-        result[inputString[i]] = tally;              
+      let testCase = inputString[i];
+      if (result.hasOwnProperty(testCase)) {   
+        result[testCase]++; 
       } else {                                       
-        result[inputString[i]] = 1;                  
+        result[testCase] = 1;                  
       }              
     }
     return result;                    
