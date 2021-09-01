@@ -33,6 +33,9 @@ function doSomethingCool() {
 
 // Put your answer below -------------------------
 
+let coolThing = function () {
+  console.log("Something Cool!");
+}
 
 // -----------------------------------------------
 
@@ -53,6 +56,10 @@ setTimeout(sayHi, 2000);
 
 // Put your answer below -------------------------
 
+
+setTimeout(function(){
+  alert("Hello World!")
+}, 2000);
 
 // -----------------------------------------------
 
@@ -83,6 +90,10 @@ console.log("The letter is", letter);
 
 // Put your answer below -------------------------
 
+/*
+[c] While the second instance "fires off" later, the first function call
+is on a one second delay with the "y" value of letter held in memory.
+*/
 
 // -----------------------------------------------
 
@@ -106,6 +117,9 @@ var reverseStr = function(str) {
 // Put your answer below -------------------------
 
 
+var reverseStr = function(str) {
+  return str.split('').reverse().join('');
+}
 
 // -----------------------------------------------
 
@@ -140,7 +154,17 @@ var spanishColor = function(colorName) {
 
 // Put your answer below -------------------------
 
-
+function colorHex(colorName){
+  let caseCorrect = colorName.toLowerCase();
+  let spanishColor = {
+    rojo: '#ff0000',
+    blanco: '#ffffff',
+    azul: '#0000ff',
+    verde: '#00ff00',
+    negro: '#000000'
+  };
+  return spanishColor[caseCorrect];
+};
 
 // -----------------------------------------------
 
@@ -157,7 +181,8 @@ var spanishColor = function(colorName) {
 var foo = "bar";
 
 // Put your answer below -------------------------
-
+var foo;
+foo = "bar";
 
 // -----------------------------------------------
 
@@ -182,6 +207,10 @@ var callTenTimes = function(callback) {
 
 // Put your answer below -------------------------
 
+var callNtimes = function(callback, num = 10){
+  var range = Array.from(Array(num).keys());
+  range.forEach(callback);
+}
 
 // -----------------------------------------------
 
@@ -210,6 +239,22 @@ var decreaseScore = function() {
 
 // Put your answer below -------------------------
 
+function gameScore(){
+  let score = 0;
+  let goodThings = true;
+  if (goodThings){
+    return function increaseScore(){
+      score++;
+      return score;
+    }
+  } else {
+    return function decreaseScore(){
+      score--;
+      return score;
+    }
+  }
+
+}
 
 
 // -----------------------------------------------
@@ -231,7 +276,12 @@ var twoPlusTwo = addNumbers(2,2);
 
 // Put your answer below -------------------------
 
+var addNumbers = function(numberA, numberB) {
+  console.log(numberA + numberB);
+  return numberA + numberB;
+};
 
+var twoPlusTwo = addNumbers(2,2);
 
 // -----------------------------------------------
 
@@ -258,7 +308,18 @@ var accelerate = function(amount) {
 
 // Put your answer below -------------------------
 
+// If no value is passed, the function's data type defaults
+// to undefined.  When you try to perform a mathematical process
+//on something that isn't a number, the script doesn't know how
+// to handle it, so throws out a NaN.
 
+
+var speed = 0;
+
+var accelerate = function(amount = 1) {
+  speed += amount;
+//  return speed;
+};
 
 // -----------------------------------------------
 
@@ -301,6 +362,14 @@ var callLater = function(timeout, callback) {
 };
 
 // Put your answer below -------------------------
+
+var callLater = function(timeout, callback) {
+    if (typeof timeout === "number") {
+      setTimeout(callback, timeout);
+    } else {
+      setTimeout (timeout, 1000);
+    }
+};
 
 
 // -----------------------------------------------
