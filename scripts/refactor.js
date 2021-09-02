@@ -92,7 +92,7 @@ console.log("The letter is", letter);
 
 /*
 [c] While the second instance "fires off" later, the first function call
-is on a one second delay with the "y" value of letter held in memory.
+is on a one milisecond delay, so "y" isn't assigned until then.
 */
 
 // -----------------------------------------------
@@ -256,6 +256,20 @@ function gameScore(){
 
 }
 
+//Better answer = wrap it in an IIFE.
+/* 
+(function(){
+  var score = 0;
+
+var increaseScore = function() {
+  score++;
+};
+
+var decreaseScore = function() {
+  score--;
+};
+});
+*/
 
 // -----------------------------------------------
 
